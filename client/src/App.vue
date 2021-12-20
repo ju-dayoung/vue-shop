@@ -3,10 +3,9 @@
 
   let products = ref();
   fetch("http://localhost:5500/product")
-    .then(response => response.json()) //.thendmf xhdgo
+    .then(response => response.json())
     .catch((error) => console.log('error : ', error))
-    .then(data => products.value = data ); //그 response를 담아 가져온걸 data에 
-  console.log(products)
+    .then(data => products.value = data ); 
 </script>
 
 <template>
