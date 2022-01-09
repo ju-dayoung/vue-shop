@@ -1,14 +1,47 @@
+import axios from 'axios';
 
 async function getProducts(){
   const res = await fetch("http://localhost:5500/product")
   return await res.json()
 }
 
+async function getProducts2(){
+  const res = await axios("http://localhost:5500/product")
+  return res.data;
+}
+
+async function addProduct(product){
+  return await axios("http://localhost:5500/product",{
+    method:'post',
+    header:{
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify(product)
+  })
+}
+
 async function getProduct(id){
   const res = await fetch(`http://localhost:5500/product/${id}`)
   return await res.json()
 }
-export {getProducts, getProduct};
+
+async function addItemTocart(item){
+  return await axios.post('http://localhost:5500/cart/', item,{
+    header:{
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+async function deleteCartItem(id){
+  try{
+    await axios.delete(`http://localhost:5500/cart/${id}`)
+    return true
+  } catch (e){
+    return false;
+  }
+}
+export {getProducts, getProduct, addProduct, deleteCartItem, addItemTocart };
 
 
 

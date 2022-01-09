@@ -1,7 +1,7 @@
 <script setup>
 
 import {computed,onMounted, ref} from 'vue';
-import {getProducts} from '../service/products';
+import {getProducts, deleteCartItem, addItemTocart} from '../service/products';
 import {useStore} from 'vuex'
 
 const store = useStore();
@@ -11,7 +11,13 @@ const cart = computed(() => store.state.cart)
 onMounted(() => {
   //console.log()
 })
-function toggleCartProduct(id){
+async function toggleCartProduct(id){
+  if( cart.value.includes(id) ){
+    await deleteCartItem(id)
+  } else {
+    await addItemTocart({id,qty:1});
+  }
+
   store.commit('toggleItem', id);
 }
 

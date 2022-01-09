@@ -1,10 +1,12 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
+import './style.css'
 import App from './App.vue'
 import {createRouter, createWebHashHistory} from 'vue-router';
 import Home from './views/Home.vue'
 import Products from './views/Products.vue'
 import Product from './views/Product.vue'
+import Join from './views/Join.vue'
 
 
 
@@ -12,6 +14,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/products', component: Products },
   { path: '/product', component: Product },
+  { path: '/join', component: Join },
 ]
 
 const router = createRouter({
@@ -22,7 +25,7 @@ const router = createRouter({
 const store = createStore({
   state(){
     return{
-      cart: ['2', '3'],
+      cart: [],
     }
   },
   mutations: {
