@@ -37,22 +37,22 @@ async function joinUs(){
         <div class="mt-4">
           <div>
             <label class="block" for="Name">Name</label>
-              <input type="text" placeholder="Name" v-model="name"
+              <input type="text" placeholder="Name" v-model="name" required
                      class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" >
           </div>
           <div class="mt-4">
             <label class="block" for="email">Email</label>
-              <input type="text" placeholder="Email" v-model="email"
+              <input type="text" placeholder="Email" v-model="email" required
                      class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
           </div>
           <div class="mt-4">
             <label class="block">Password</label>
-              <input type="password" placeholder="Password" v-model="password1"
+              <input type="password" placeholder="Password" v-model="password1" required
                      class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
           </div>
           <div class="mt-4">
             <label class="block">Confirm Password</label>
-              <input type="password" placeholder="Password" v-model="password2"
+              <input type="password" placeholder="Password" v-model="password2" required
                      class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
           </div>
           <span class="text-xs text-red">Password must be same!</span>
