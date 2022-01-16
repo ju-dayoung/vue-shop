@@ -13,37 +13,37 @@
       "imgUrl": "https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "책상",
       "price": 300000,
       "imgUrl": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "타자기",
       "price": 4400,
       "imgUrl": "https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "텀블러",
       "price": 5000,
       "imgUrl": "https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "라떼",
       "price": 2500,
       "imgUrl": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "인셉션",
       "price": 500,
       "imgUrl": "https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "주사위",
       "price": 5000,
       "imgUrl": "https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80"
@@ -51,7 +51,11 @@
   ],
   "cart": [
     {
-      "id": 1,
+      "id": 2,
+      "qty": 1
+    },
+    {
+      "id": 3,
       "qty": 1
     }
   ],
@@ -63,82 +67,10 @@
       "id": 3
     },
     {
-      "name": "111",
-      "email": "111",
-      "password": "111",
-      "id": 5
-    },
-    {
-      "name": "1111",
-      "email": "1111",
-      "password": "1111",
-      "id": 7
-    },
-    {
-      "name": "1111",
-      "email": "1111",
-      "password": "1111",
-      "id": 9
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 16
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 17
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 18
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 19
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 20
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 21
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 22
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 23
-    },
-    {
-      "name": "asdf",
-      "email": "asdf",
-      "password": "asdf",
-      "id": 24
-    },
-    {
-      "name": "1234",
-      "email": "1234",
-      "password": "asdf",
-      "id": 25
+      "name": "ju",
+      "email": "ju@ju.com",
+      "password": "1234",
+      "id": 26
     }
   ]
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 async function addUser(user){
   const userList = await checkUser();
   let email = userList.map(({ email }) => email)
-  //console.log(email)
+  //array의 some, every 이용해서 수정해보기
   if( email.includes(user.email) ){
     alert('id 중복');
     return false;
@@ -16,7 +16,6 @@ async function addUser(user){
       },
     })
   }
-
 }
 
 async function checkUser(){
@@ -25,3 +24,4 @@ async function checkUser(){
 }
 
 export {addUser};
+//

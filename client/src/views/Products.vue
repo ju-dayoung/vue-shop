@@ -7,12 +7,13 @@ import {useStore} from 'vuex'
 const store = useStore();
 const products = ref()
 const cart = computed(() => store.state.cart)
-
+console.log('store',store.state.cart)
+console.log('cart',cart)
 onMounted(() => {
   //console.log()
 })
 async function toggleCartProduct(id){
-  if( cart.value.includes(id) ){
+  if( cart.value.includes(id) === true ){
     await deleteCartItem(id)
   } else {
     await addItemTocart({id,qty:1});
@@ -23,8 +24,10 @@ async function toggleCartProduct(id){
 
 async function loadProducts() {
   products.value = await getProducts()
+  console.log(products.value)
 }
 loadProducts()
+
 </script>
 <template>
   <main class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">

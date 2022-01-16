@@ -1,14 +1,29 @@
 <script setup>
-  import {ref} from 'vue';
-  import {getProducts} from './service/products';
+  import {onMounted, ref} from 'vue';
+  import {getProducts, getAllCartItems} from './service/products';
   import Nav from './components/Nav.vue';
   import Footer from './components/Footer.vue';
   import About from './components/About.vue';
-  let products = ref();
+  import {useStore} from 'vuex';
 
-  async function load(){
-    products.value = await getProducts();
+  const store = useStore();
+  const products = ref();
+  const carts = ref();
+
+  async function loadProducts(){
+    products.value = await getProducts()
   }
+
+  async function loadCarts(){
+    carts.value = await getAllCartItems();
+    carts.value.forEach(({id}) => store.commit('toggleItem', id))
+  }
+  
+  onMounted(() => {
+    loadCarts();
+  })
+
+
 </script>
 
 <template>
