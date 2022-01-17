@@ -25,10 +25,7 @@ async function getProduct(id){
   return await res.json()
 }
 
-async function getProduct2(id){
-  const res = await axios.get(`http://localhost:5500/product/${id}`)
-  return res.data;
-}
+
 
 async function addItemTocart(item){
   return await axios.post('http://localhost:5500/cart/', item,{
@@ -42,10 +39,7 @@ async function getAllCartItems(){
   const res = await axios.get('http://localhost:5500/cart')
   return res.data;
 }
-async function getcartItem(id){
-  const res = await axios.get(`http://localhost:5500/cart/${id}`)
-  return res.data;
-}
+
 async function deleteCartItem(id){
   try{
     await axios.delete(`http://localhost:5500/cart/${id}`)
@@ -54,7 +48,7 @@ async function deleteCartItem(id){
     return false;
   }
 }
-export {getProducts, getProduct, getProduct2, addProduct, deleteCartItem, addItemTocart, getAllCartItems, getcartItem };
+export {getProducts, getProduct, addProduct, deleteCartItem, addItemTocart, getAllCartItems };
 
 
 

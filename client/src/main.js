@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
+import createPersistedState from 'vuex-persistedstate';
 import './style.css'
 import App from './App.vue'
 import {createRouter, createWebHashHistory} from 'vue-router';
@@ -44,7 +45,8 @@ const store = createStore({
         state.cart.push(id);
       }
     },
-  }
+  },
+  //plugins: [createPersistedState()],
 })
 createApp(App).use(router).use(store).mount('#app')
 

@@ -1,21 +1,49 @@
 <script setup>
-  import {computed, onMounted, ref} from 'vue';
-  import {getProduct2, getcartItem} from '../service/products';
+  import {computed, onMounted,ref,watch} from 'vue';
+  import {getProduct, getcartItem, operCartQty} from '../service/cart';
   import {useStore} from 'vuex'
 
   const store = useStore();
   const cartItems = []
   const carts = computed(() => store.state.cart)
   
-  setCartItem()
-  async function setCartItem(){
+  // async function setCartItem(cartList){
+  //   cartList.forEach( async (id) => {
+  //     const cart = await getProduct(id)
+  //     const cartQty = await getcartItem(id)
+  //     cart.qty = cartQty.qty
+  //     cartItems.push(cart);
+  //   });
+  //   return cartItems;
+  // }
+  async function plusQty(id, qty){
+    qty++;
+    return await operCartQty(id, qty)
+  }
+  async function minusQty(id, qty){
+    qty++;
+    return await operCartQty(id, qty)
+  }
+
+  // watch(() => carts.value.length, () => {
+  //   console.log(carts.value.length)
+  //   carts.value.forEach(async(id) => {
+  //     const cart = await getProduct(id)
+  //     const cartQty = await getcartItem(id)
+  //     cart.qty = cartQty.qty
+  //     cartItems.push(cart);
+  //   })
+  //   return cartItems
+  // })
+
+  watch(() => carts.value.length, () => {
     carts.value.forEach( async (id) => {
-      const cart = await getProduct2(id)
+      const cart = await getProduct(id)
       const cartQty = await getcartItem(id)
       cart.qty = cartQty.qty
       cartItems.push(cart);
-    });
-  }
+    })
+  })
 </script>
 <template>
   <div class="container mx-auto mt-10">
@@ -33,13 +61,12 @@
         </div>
         <!-- item start --> 
         <div v-if="cartItems.length === 0">
-          카트에 뭐 없음 : {{cartItems}}
+          카트에 상품이 없습니다.
         </div>
         <div v-else>
-          카트에 뭐 있음 : {{cartItems}}
-        </div>
+        
 
-        <div v-for="cartItem in cartItems" :key='cartItem.id' class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+        <div v-for="cartItem in cartItems" :key="cartItem.id" class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div class="flex w-2/5"> <!-- product -->
             <div class="w-20">
               <img class="h-24" alt="" v-bind:src="cartItem.imgUrl">
@@ -51,12 +78,11 @@
             </div>
           </div>
           <div class="flex justify-center w-1/5">
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            <svg class="fill-current text-gray-600 w-3" v-on:click.prevent="minusQty(cartItem.id, cartItem.qty)" viewBox="0 0 448 512">
+              <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
             </svg>
-
             <input class="mx-2 border text-center w-8" type="text" v-bind:value="cartItem.qty">
-
-            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+            <svg class="fill-current text-gray-600 w-3" v-on:click.prevent="plusQty(cartItem.id, cartItem.qty)" viewBox="0 0 448 512">
               <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
             </svg>
           </div>
@@ -64,6 +90,7 @@
           <span class="text-center w-1/5 font-semibold text-sm">{{cartItem.price * cartItem.qty}}</span>
         </div>
         <!-- item end --> 
+        </div>
 
 
         <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
